@@ -31,5 +31,22 @@ router.get('/:id', (req, res) => {
           res.send(users[req.params.id - 1])
 })
 
+router.post('/', (req, res) => {
+          users.push(req.body)
+          res.send(users)
+})
+
+router.put('/:id', (req, res) => {
+          users[req.params.id - 1] = req.body
+          res.send(users)
+})
+
+router.delete('/:id', (req, res) => {
+          users.splice(req.params.id - 1, 1)
+          res.send(users)
+})
+
+
+
 
 module.exports = router
